@@ -1,0 +1,87 @@
+{
+  "remote.containers.dockerPath": "",
+  "files.defaultLanguage": " ${activeEditorLanguage}",
+  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?！￥（）、；：‘’“”，。《》？—",
+  "workbench.iconTheme": "vscode-icons",
+  "window.dialogStyle": "custom",
+  "editor.fontFamily": "'Fira Code', 'Noto Sans Mono CJK SC', 'Noto Color Emoji', monospace",
+  "editor.fontLigatures": true,
+  "editor.renderWhitespace": "all",
+  "markdown.preview.fontFamily": "Roboto,'Noto Sans CJK SC','Noto Color Emoji',sans-serif",
+  // code style
+  // format 中文
+  "json.format.enable": false,
+  "editor.formatOnPaste": true,
+  "typescript.preferences.quoteStyle": "single",
+  "[markdown]": {
+    // "editor.wordWrap": "off",
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    // "editor.unicodeHighlight.allowedLocales": {
+    //   "zh-hans": true
+    // },
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
+    "files.trimTrailingWhitespace": false
+  },
+  "[fish]": {
+    "editor.defaultFormatter": "bmalehorn.vscode-fish"
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  // Prettier
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.singleQuote": true,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "cSpell.language": "en",
+  "terminal.integrated.commandsToSkipShell": [
+    "-workbench.action.terminal.focusFind",
+    "-workbench.action.quickOpen"
+  ],
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb",
+    "*.pdf": "default"
+  },
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "redhat.telemetry.enabled": false,
+  "leetcode.workspaceFolder": "/home/lonr/Projects/leetcode",
+  "leetcode.defaultLanguage": "typescript",
+  "leetcode.hint.configWebviewMarkdown": false,
+  "leetcode.hint.commandShortcut": false,
+  "stylelint.validate": ["css", "less", "postcss", "scss"],
+  "editor.inlineSuggest.enabled": true,
+  "eslint.packageManager": "pnpm",
+  "git.autofetch": true,
+  "grammarly.files.include": ["**/README.md", "**/readme.md", "**/*.txt"],
+  "terminal.external.linuxExec": "tilix",
+  "hexeditor.columnWidth": 16,
+  "hexeditor.showDecodedText": true,
+  "hexeditor.defaultEndianness": "little",
+  "hexeditor.inspectorType": "aside",
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "leetcode.showDescription": "None",
+  "githubPullRequests.pullBranch": "never",
+  "leetcode.hint.commentDescription": false,
+  "window.titleBarStyle": "custom",
+  "database-client.autoSync": true,
+  "terminal.integrated.minimumContrastRatio": 1,
+  "workbench.colorTheme": "One Dark Pro",
+  "terminal.integrated.defaultProfile.linux": "zsh"
+}
