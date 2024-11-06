@@ -16,7 +16,7 @@ void test('sortSettingsJson - settings.json', async function () {
     'utf-8',
   );
   // TODO: deal with the newline at the end of the file
-  assert.strictEqual(sortedJson, sortSettingsJson(settingsJson) + '\n');
+  assert.strictEqual(sortedJson, sortSettingsJson(settingsJson));
 });
 
 void test('sortSettingsJson - defaultSettings.json', async function () {
@@ -29,5 +29,5 @@ void test('sortSettingsJson - defaultSettings.json', async function () {
     'utf-8',
   );
   // TODO: deal with the newline at the end of the file
-  assert.strictEqual(defaultSortedJson, sortSettingsJson(defaultSettingsJson) + '\n');
+  assert.strictEqual(defaultSortedJson, sortSettingsJson(defaultSettingsJson));
 });

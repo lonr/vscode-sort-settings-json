@@ -1,9 +1,9 @@
 {
-  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?！￥（）、；：‘’“”，。《》？—",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.renderWhitespace": "all",
   // Prettier
   "editor.tabSize": 2,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?！￥（）、；：‘’“”，。《》？—",
   "editor.fontFamily": "'Fira Code', 'Noto Sans Mono CJK SC', 'Noto Color Emoji', monospace",
   "editor.fontLigatures": true,
   "editor.formatOnPaste": true,
@@ -23,13 +23,13 @@
   "workbench.iconTheme": "vscode-icons",
   "window.dialogStyle": "custom",
   "window.titleBarStyle": "custom",
+  "terminal.external.linuxExec": "tilix",
   "terminal.integrated.commandsToSkipShell": [
     "-workbench.action.terminal.focusFind",
     "-workbench.action.quickOpen"
   ],
-  "terminal.external.linuxExec": "tilix",
-  "terminal.integrated.minimumContrastRatio": 1,
   "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.minimumContrastRatio": 1,
   "remote.containers.dockerPath": "",
   "cSpell.language": "en",
   "css.validate": false,

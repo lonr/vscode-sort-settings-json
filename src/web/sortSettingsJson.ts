@@ -14,7 +14,8 @@ export function sortSettingsJson(json: string): string {
       } else {
         const order1 = calcOrder(tocData, key1);
         const order2 = calcOrder(tocData, key2);
-        if (order1 === Infinity && order2 === Infinity) {
+        // also handles when both `order1` and `order2` equal `Infinity`.
+        if (order1 === order2) {
           return key1.localeCompare(key2);
         } else {
           return order1 - order2;

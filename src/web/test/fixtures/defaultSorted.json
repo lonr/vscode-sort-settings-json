@@ -326,10 +326,10 @@
   "editor.scrollBeyondLastColumn": 4,
   // Controls whether the editor will scroll beyond the last line.
   "editor.scrollBeyondLastLine": true,
-  // Controls whether the Linux primary clipboard should be supported.
-  "editor.selectionClipboard": true,
   // Scroll only along the predominant axis when scrolling both vertically and horizontally at the same time. Prevents horizontal drift when scrolling vertically on a trackpad.
   "editor.scrollPredominantAxis": true,
+  // Controls whether the Linux primary clipboard should be supported.
+  "editor.selectionClipboard": true,
   // Controls whether the editor should highlight matches similar to the selection.
   "editor.selectionHighlight": true,
   // Controls whether the semanticHighlighting is shown for the languages that support it.
@@ -1226,8 +1226,6 @@
   "screencastMode.mouseIndicatorSize": 20,
   // Controls the vertical offset of the screencast mode overlay from the bottom as a percentage of the workbench height.
   "screencastMode.verticalOffset": 20,
-  // Controls the height of editor tabs. Also applies to the title control bar when `workbench.editor.showTabs` is not set to `multiple`.
-  "window.density.editorTabHeight": "default",
   // Window
   // If set, automatically switch to the preferred color theme based on the OS appearance. If the OS appearance is dark, the theme specified at `workbench.preferredDarkColorTheme` is used, for light `workbench.preferredLightColorTheme`.
   "window.autoDetectColorScheme": false,
@@ -1251,14 +1249,12 @@
   //  - windowed: Hide custom titlebar in full screen. When not in full screen, automatically change custom title bar visibility.
   //  - never: Hide custom titlebar when `window.titleBarStyle` is set to `native`.
   "window.customTitleBarVisibility": "auto",
+  // Controls the height of editor tabs. Also applies to the title control bar when `workbench.editor.showTabs` is not set to `multiple`.
+  "window.density.editorTabHeight": "default",
   // Adjust the appearance of dialog windows.
   "window.dialogStyle": "native",
   // If enabled, this setting will close the window when the application icon in the title bar is double-clicked. The window will not be able to be dragged by the icon. This setting is effective only if `window.titleBarStyle` is set to `custom`.
   "window.doubleClickIconToClose": false,
-  // Controls if native full-screen should be used on macOS. Disable this option to prevent macOS from creating a new space when going full-screen.
-  "window.nativeFullScreen": true,
-  // Enables macOS Sierra window tabs. Note that changes require a full restart to apply and that native tabs will disable a custom title bar style if configured.
-  "window.nativeTabs": false,
   // Controls whether the main menus can be opened via Alt-key shortcuts. Disabling mnemonics allows to bind these Alt-key shortcuts to editor commands instead.
   "window.enableMenuBarMnemonics": true,
   // Control the visibility of the menu bar. A setting of 'toggle' means that the menu bar is hidden and a single press of the Alt key will show it. A setting of 'compact' will move the menu into the side bar.
@@ -1268,6 +1264,10 @@
   //  - hidden: Menu is always hidden.
   //  - compact: Menu is displayed as a compact button in the side bar. This value is ignored when `window.titleBarStyle` is `native`.
   "window.menuBarVisibility": "classic",
+  // Controls if native full-screen should be used on macOS. Disable this option to prevent macOS from creating a new space when going full-screen.
+  "window.nativeFullScreen": true,
+  // Enables macOS Sierra window tabs. Note that changes require a full restart to apply and that native tabs will disable a custom title bar style if configured.
+  "window.nativeTabs": false,
   // Controls whether a window should restore to full screen mode if it was exited in full screen mode.
   "window.restoreFullscreen": false,
   // Controls how windows and editors within are being restored when opening.
@@ -1277,6 +1277,12 @@
   //  - one: Reopen the last active window unless a folder, workspace or file is opened (e.g. from the command line). If a file is opened, it will replace any of the editors that were previously opened in a window.
   //  - none: Never reopen a window. Unless a folder or workspace is opened (e.g. from the command line), an empty window will appear.
   "window.restoreWindows": "all",
+  // Set the color mode for native UI elements such as native dialogs, menus and title bar.
+  //  - default: Native widget colors match the system colors.
+  //  - auto: Use light native widget colors for light color themes and dark for dark color themes.
+  //  - light: Use light native widget colors.
+  //  - dark: Use dark native widget colors.
+  "window.systemColorTheme": "default",
   // Controls the window title based on the current context such as the opened workspace or active editor.
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}",
   // Adjust the appearance of the window title bar to be native by the OS or custom. On Linux and Windows, this setting also affects the application and context menu appearances. Changes require a full restart to apply.
@@ -1287,12 +1293,6 @@
   "window.zoomLevel": 0,
   // Controls if the 'Zoom In' and 'Zoom Out' commands apply the zoom level to all windows or only the active window. See `window.zoomLevel` for configuring a default zoom level for all windows.
   "window.zoomPerWindow": true,
-  // Set the color mode for native UI elements such as native dialogs, menus and title bar.
-  //  - default: Native widget colors match the system colors.
-  //  - auto: Use light native widget colors for light color themes and dark for dark color themes.
-  //  - light: Use light native widget colors.
-  //  - dark: Use dark native widget colors.
-  "window.systemColorTheme": "default",
   // Controls the dimensions of opening a new window when at least one window is already opened. Note that this setting does not have an impact on the first window that is opened. The first window will always restore the size and location as you left it before closing.
   //  - default: Open new windows in the center of the screen.
   //  - inherit: Open new windows with same dimension as last active one.
@@ -1456,6 +1456,10 @@
   "accessibility.signals.voiceRecordingStopped": {
     "sound": "auto"
   },
+  // On keypress, close the Accessible View and focus the element from which it was invoked.
+  "accessibility.accessibleView.closeOnKeyPress": true,
+  // Controls whether variable changes should be announced in the debug watch view.
+  "accessibility.debugWatchVariableAnnouncements": true,
   // Workbench
   // Whether to dim unfocused editors and terminals, which makes it more clear where typed input will go to. This works with the majority of editors with the notable exceptions of those that utilize iframes like notebooks and extension webview editors.
   "accessibility.dimUnfocused.enabled": false,
@@ -1463,10 +1467,6 @@
   "accessibility.dimUnfocused.opacity": 0.75,
   // Controls whether the Accessible View is hidden.
   "accessibility.hideAccessibleView": false,
-  // On keypress, close the Accessible View and focus the element from which it was invoked.
-  "accessibility.accessibleView.closeOnKeyPress": true,
-  // Controls whether variable changes should be announced in the debug watch view.
-  "accessibility.debugWatchVariableAnnouncements": true,
   // Controls whether links should be underlined in the workbench.
   "accessibility.underlineLinks": false,
   // Provide information about actions that can be taken in the comment widget or in a file which contains comments.
@@ -1680,10 +1680,10 @@
   },
   // Controls whether to follow symlinks while searching.
   "search.followSymlinks": true,
-  // Controls the maximum number of search results, this can be set to `null` (empty) to return unlimited results.
-  "search.maxResults": 20000,
   // Controls whether the search view should read or modify the shared find clipboard on macOS.
   "search.globalFindClipboard": false,
+  // Controls the maximum number of search results, this can be set to `null` (empty) to return unlimited results.
+  "search.maxResults": 20000,
   // Controls where new `Search: Find in Files` and `Find in Folder` operations occur: either in the search view, or in a search editor.
   //  - view: Search in the search view, either in the panel or side bars.
   //  - reuseEditor: Search in an existing search editor if present, otherwise in a new search editor.
@@ -1799,6 +1799,40 @@
   "debug.inlineValues": "auto",
   // Controls when the internal Debug Console should open.
   "debug.internalConsoleOptions": "openOnFirstSessionStart",
+  // JavaScript Debugger
+  // Configures which processes to automatically attach and debug when `debug.node.autoAttach` is on. A Node process launched with the `--inspect` flag will always be attached to, regardless of this setting.
+  //  - always: Auto attach to every Node.js process launched in the terminal.
+  //  - smart: Auto attach when running scripts that aren't in a node_modules folder.
+  //  - onlyWithFlag: Only auto attach when the `--inspect` is given.
+  //  - disabled: Auto attach is disabled and not shown in status bar.
+  "debug.javascript.autoAttachFilter": "disabled",
+  // Configures glob patterns for determining when to attach in "smart" `debug.javascript.autoAttachFilter` mode. `$KNOWN_TOOLS$` is replaced with a list of names of common test and code runners.
+  "debug.javascript.autoAttachSmartPattern": [
+    "${workspaceFolder}/**",
+    "!**/node_modules/**",
+    "**/$KNOWN_TOOLS$/**"
+  ],
+  // When debugging a remote web app, configures whether to automatically tunnel the remote server to your local machine.
+  "debug.javascript.automaticallyTunnelRemoteServer": true,
+  // Whether to stop when conditional breakpoints throw an error.
+  "debug.javascript.breakOnConditionalError": false,
+  // Where a "Run" and "Debug" code lens should be shown in your npm scripts. It may be on "all", scripts, on "top" of the script section, or "never".
+  "debug.javascript.codelens.npmScripts": "top",
+  // Options used when debugging open links clicked from inside the JavaScript Debug Terminal. Can be set to "off" to disable this behavior, or "always" to enable debugging in all terminals.
+  "debug.javascript.debugByLinkOptions": "on",
+  // The default `runtimeExecutable` used for launch configurations, if unspecified. This can be used to config custom paths to Node.js or browser installations.
+  "debug.javascript.defaultRuntimeExecutable": {
+    "pwa-node": "node"
+  },
+  // Default options used when debugging a process through the `Debug: Attach to Node.js Process` command.
+  "debug.javascript.pickAndAttachOptions": {},
+  // Request options to use when loading resources, such as source maps, in the debugger. You may need to configure this if your sourcemaps require authentication or use a self-signed certificate, for instance. Options are used to create a request using the `got` library.
+  // A common case to disable certificate verification can be done by passing `{ "https": { "rejectUnauthorized": false } }`.
+  "debug.javascript.resourceRequestOptions": {},
+  // Default launch options for the JavaScript debug terminal and npm scripts.
+  "debug.javascript.terminalOptions": {},
+  // Configures whether sourcemapped file where the original file can't be read will automatically be unmapped. If this is false (default), a prompt is shown.
+  "debug.javascript.unmapMissingSources": false,
   // Controls what to do when errors are encountered after running a preLaunchTask.
   //  - debugAnyway: Ignore task errors and start debugging.
   //  - showErrors: Show the Problems view and do not start debugging.
@@ -1835,40 +1869,6 @@
   //  - commandCenter: `(Experimental)` Show debug toolbar in the command center.
   //  - hidden: Do not show debug toolbar.
   "debug.toolBarLocation": "floating",
-  // JavaScript Debugger
-  // Configures which processes to automatically attach and debug when `debug.node.autoAttach` is on. A Node process launched with the `--inspect` flag will always be attached to, regardless of this setting.
-  //  - always: Auto attach to every Node.js process launched in the terminal.
-  //  - smart: Auto attach when running scripts that aren't in a node_modules folder.
-  //  - onlyWithFlag: Only auto attach when the `--inspect` is given.
-  //  - disabled: Auto attach is disabled and not shown in status bar.
-  "debug.javascript.autoAttachFilter": "disabled",
-  // Configures glob patterns for determining when to attach in "smart" `debug.javascript.autoAttachFilter` mode. `$KNOWN_TOOLS$` is replaced with a list of names of common test and code runners.
-  "debug.javascript.autoAttachSmartPattern": [
-    "${workspaceFolder}/**",
-    "!**/node_modules/**",
-    "**/$KNOWN_TOOLS$/**"
-  ],
-  // When debugging a remote web app, configures whether to automatically tunnel the remote server to your local machine.
-  "debug.javascript.automaticallyTunnelRemoteServer": true,
-  // Whether to stop when conditional breakpoints throw an error.
-  "debug.javascript.breakOnConditionalError": false,
-  // Where a "Run" and "Debug" code lens should be shown in your npm scripts. It may be on "all", scripts, on "top" of the script section, or "never".
-  "debug.javascript.codelens.npmScripts": "top",
-  // Options used when debugging open links clicked from inside the JavaScript Debug Terminal. Can be set to "off" to disable this behavior, or "always" to enable debugging in all terminals.
-  "debug.javascript.debugByLinkOptions": "on",
-  // The default `runtimeExecutable` used for launch configurations, if unspecified. This can be used to config custom paths to Node.js or browser installations.
-  "debug.javascript.defaultRuntimeExecutable": {
-    "pwa-node": "node"
-  },
-  // Default options used when debugging a process through the `Debug: Attach to Node.js Process` command.
-  "debug.javascript.pickAndAttachOptions": {},
-  // Request options to use when loading resources, such as source maps, in the debugger. You may need to configure this if your sourcemaps require authentication or use a self-signed certificate, for instance. Options are used to create a request using the `got` library.
-  // A common case to disable certificate verification can be done by passing `{ "https": { "rejectUnauthorized": false } }`.
-  "debug.javascript.resourceRequestOptions": {},
-  // Default launch options for the JavaScript debug terminal and npm scripts.
-  "debug.javascript.terminalOptions": {},
-  // Configures whether sourcemapped file where the original file can't be read will automatically be unmapped. If this is false (default), a prompt is shown.
-  "debug.javascript.unmapMissingSources": false,
   // Global debug launch configuration. Should be used as an alternative to 'launch.json' that is shared across workspaces.
   "launch": {
     "compounds": [],
@@ -2054,11 +2054,6 @@
   "terminal.external.osxExec": "Terminal.app",
   // Customizes which terminal to run on Windows.
   "terminal.external.windowsExec": "C:\\WINDOWS\\System32\\cmd.exe",
-  // When opening a repository from the Source Control Repositories view in a terminal, determines what kind of terminal will be launched
-  //  - integrated: Use VS Code's integrated terminal.
-  //  - external: Use the configured external terminal.
-  //  - both: Use the other two together.
-  "terminal.sourceControlRepositoriesKind": "integrated",
   // Focus the terminal accessible view when a command is executed.
   "terminal.integrated.accessibleViewFocusOnCommandExecution": false,
   // Preserve the cursor position on reopen of the terminal's accessible view rather than setting it to the bottom of the buffer.
@@ -2434,6 +2429,11 @@
   "terminal.integrated.windowsEnableConpty": true,
   // A string containing all characters to be considered word separators when double-clicking to select word and in the fallback 'word' link detection. Since this is used for link detection, including characters such as `:` that are used when detecting links will cause the line and column part of links like `file:10:5` to be ignored.
   "terminal.integrated.wordSeparators": " ()[]{}',\"`─‘’“”|",
+  // When opening a repository from the Source Control Repositories view in a terminal, determines what kind of terminal will be launched
+  //  - integrated: Use VS Code's integrated terminal.
+  //  - external: Use the configured external terminal.
+  //  - both: Use the other two together.
+  "terminal.sourceControlRepositoriesKind": "integrated",
   // Enable automatic tasks - note that tasks won't run in an untrusted workspace.
   //  - on: Always
   //  - off: Never
@@ -2493,11 +2493,6 @@
   "comments.useRelativeTime": true,
   // Controls the visibility of the comments bar and comment threads in editors that have commenting ranges and comments. Comments are still accessible via the Comments view and will cause commenting to be toggled on in the same way running the command "Comments: Toggle Editor Commenting" toggles comments.
   "comments.visible": true,
-  // Remote
-  // The name under which the remote tunnel access is registered. If not set, the host name is used.
-  "remote.tunnels.access.hostNameOverride": "",
-  // Prevent the computer from sleeping when remote tunnel access is turned on.
-  "remote.tunnels.access.preventSleep": false,
   // When enabled, new running processes are detected and ports that they listen on are automatically forwarded. Disabling this setting will not prevent all ports from being forwarded. Even when disabled, extensions will still be able to cause ports to be forwarded, and opening some URLs will still cause ports to forwarded.
   "remote.autoForwardPorts": true,
   // The number of auto forwarded ports that will trigger the switch from `process` to `hybrid` when automatically forwarding ports and `remote.autoForwardPortsSource` is set to `process`. Set to `0` to disable the fallback.
@@ -2525,12 +2520,15 @@
   "remote.portsAttributes": {},
   // Restores the ports you forwarded in a workspace.
   "remote.restoreForwardedPorts": true,
+  // Remote
+  // The name under which the remote tunnel access is registered. If not set, the host name is used.
+  "remote.tunnels.access.hostNameOverride": "",
+  // Prevent the computer from sleeping when remote tunnel access is turned on.
+  "remote.tunnels.access.preventSleep": false,
   // Experimental. Controls whether the Timeline view will load the next page of items when you scroll to the end of the list.
   "timeline.pageOnScroll": false,
   // The number of items to show in the Timeline view by default and when loading more items. Setting to `null` (the default) will automatically choose a page size based on the visible area of the Timeline view.
   "timeline.pageSize": null,
-  // Run a series of Code Actions for a notebook on save.
-  "notebook.codeActionsOnSave": {},
   // The limit of notebook output size in kilobytes (KB) where notebook files will no longer be backed up for hot reload. Use 0 for unlimited.
   "notebook.backup.sizeLimit": 10000,
   // When enabled, notebook breadcrumbs contain code cells.
@@ -2545,6 +2543,8 @@
   },
   // Whether the cell toolbar should appear on hover or click.
   "notebook.cellToolbarVisibility": "click",
+  // Run a series of Code Actions for a notebook on save.
+  "notebook.codeActionsOnSave": {},
   // Control whether the notebook editor should be rendered in a compact form. For example, when turned on, it will decrease the left margin width.
   "notebook.compactView": true,
   // Control whether a confirmation prompt is required to delete a running cell.
@@ -2650,11 +2650,11 @@
   "notebook.stickyScroll.mode": "indented",
   // Whether to use separate undo/redo stack for each cell.
   "notebook.undoRedoPerCell": true,
+  // Automatically scroll the interactive window to show the output of the last statement executed. If this value is false, the window will only scroll if the last cell was already the one scrolled to.
+  "interactiveWindow.alwaysScrollOnNewCell": true,
   // Notebooks
   // Controls whether code cells in the interactive window are collapsed by default.
   "interactiveWindow.collapseCellInputCode": "fromEditor",
-  // Automatically scroll the interactive window to show the output of the last statement executed. If this value is false, the window will only scroll if the last cell was already the one scrolled to.
-  "interactiveWindow.alwaysScrollOnNewCell": true,
   // Execute the Interactive Window (REPL) input box with shift+enter, so that enter can be used to create a newline.
   "interactiveWindow.executeWithShiftEnter": false,
   // Prompt to save the interactive window when it is closed. Only new interactive windows will be affected by this setting change.
@@ -3878,9 +3878,9 @@
   },
   // Configure settings to be overridden for the dockercompose language.
   "[dockercompose]": {
+    "editor.autoIndent": "advanced",
     "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.autoIndent": "advanced"
+    "editor.tabSize": 2
   },
   // Configure settings to be overridden for the dockerfile language.
   "[dockerfile]": {
@@ -3982,9 +3982,9 @@
   },
   // Configure settings to be overridden for the yaml language.
   "[yaml]": {
+    "editor.autoIndent": "advanced",
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
-    "editor.autoIndent": "advanced",
     "diffEditor.ignoreTrimWhitespace": false
   }
 }
