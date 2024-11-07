@@ -1,7 +1,7 @@
 {
   "name": "sort-settings-json",
   "displayName": "Sort settings.json",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Sorts the settings.json file according to the VSCode settings UI order",
   "categories": [
     "Formatters"

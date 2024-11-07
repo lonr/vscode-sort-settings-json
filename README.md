@@ -8,15 +8,9 @@ Sorts the `settings.json` file according to the VSCode settings UI order.
 
 ![screenshot](./images/screenshot.png)
 
-## Known Issues
+## Limits
 
-Some settings from Extensions are not sorted the same as the settings UI.
-
-## Release Notes
-
-### 1.0.0
-
-Initial release of Sort `settings.json`
+Some settings from Extensions are not sorted in the same manner as in the settings UI.
 
 ## For more information
 

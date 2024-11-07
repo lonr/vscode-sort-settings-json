@@ -2,14 +2,19 @@ import { sortJsonc } from 'sort-jsonc';
 import { ITOCEntry, tocData } from './tocTree';
 import { settingMatches } from './utils';
 
+// For example, [markdown]
+function isLangSetting(key: string) {
+  return key.startsWith('[');
+}
+
 export function sortSettingsJson(json: string): string {
   return sortJsonc(json, {
     sort(key1, key2) {
-      if (key1.startsWith('[') && !key2.startsWith('[')) {
+      if (isLangSetting(key1) && !isLangSetting(key2)) {
         return 1;
-      } else if (!key1.startsWith('[') && key2.startsWith('[')) {
+      } else if (!isLangSetting(key1) && isLangSetting(key2)) {
         return -1;
-      } else if (key1.startsWith('[') && key2.startsWith('[')) {
+      } else if (isLangSetting(key1) && isLangSetting(key2)) {
         return key1.localeCompare(key2);
       } else {
         const order1 = calcOrder(tocData, key1);
@@ -27,15 +32,23 @@ export function sortSettingsJson(json: string): string {
 
 type Result = { found: boolean; current: number };
 
+const orderCache = new Map<string, number>();
+
 function calcOrder(tocData: ITOCEntry<string>, key: string): number {
+  if (orderCache.has(key)) {
+    return orderCache.get(key)!;
+  }
+
   const { found, current } = calcOrderHelper(tocData, key);
-  return found ? current : Infinity;
+  const order = found ? current : Infinity;
+  orderCache.set(key, order);
+  return order;
 }
 
 function calcOrderHelper(
   tocData: ITOCEntry<string>,
   key: string,
-  order: Result = { found: false, current: 0 }
+  order: Result = { found: false, current: 0 },
 ): Result {
   let next = order.current + (tocData.settings?.length ?? 0);
 
