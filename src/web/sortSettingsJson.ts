@@ -1,5 +1,9 @@
 import { sortJsonc } from 'sort-jsonc';
-import { defaultCommonlyUsedSettings as commonlyUsed, ITOCEntry, tocData } from './tocTree';
+import {
+  defaultCommonlyUsedSettings as commonlyUsed,
+  ITOCEntry,
+  tocData,
+} from './tocTree';
 import { settingMatches } from './utils';
 
 // For example, [markdown]
@@ -30,6 +34,9 @@ export function sortSettingsJson(json: string): string {
   });
 }
 
+// cache for calcTocDataOrder
+const cache = new Map<string, number>();
+
 function calcOrder(
   commonlyUsed: string[],
   tocData: ITOCEntry<string>,
@@ -37,27 +44,22 @@ function calcOrder(
 ) {
   if (commonlyUsed.includes(key)) {
     return commonlyUsed.indexOf(key);
+  } else if (cache.has(key)) {
+    return cache.get(key)!;
+  } else {
+    const { found, current } = calcTocDataOrder(tocData, key, {
+      found: false,
+      current: commonlyUsed.length,
+    });
+    const order = found ? current : Infinity;
+    cache.set(key, order);
+    return order;
   }
-
-  return commonlyUsed.length + calcOrderOfTocData(tocData, key);
 }
-
-const orderCache = new Map<string, number>();
 
 type Result = { found: boolean; current: number };
 
-function calcOrderOfTocData(tocData: ITOCEntry<string>, key: string): number {
-  if (orderCache.has(key)) {
-    return orderCache.get(key)!;
-  }
-
-  const { found, current } = calcOrderOfTocDataHelper(tocData, key);
-  const order = found ? current : Infinity;
-  orderCache.set(key, order);
-  return order;
-}
-
-function calcOrderOfTocDataHelper(
+function calcTocDataOrder(
   tocData: ITOCEntry<string>,
   key: string,
   order: Result = { found: false, current: 0 },
@@ -66,7 +68,7 @@ function calcOrderOfTocDataHelper(
 
   if (tocData.children) {
     for (const child of tocData.children) {
-      const { found, current } = calcOrderOfTocDataHelper(child, key, {
+      const { found, current } = calcTocDataOrder(child, key, {
         found: false,
         current: next,
       });
