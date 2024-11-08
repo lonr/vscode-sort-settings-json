@@ -4,6 +4,10 @@ All notable changes to the "sort-settings-json" extension will be documented in 
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.1.0]
+
+- Take [`defaultCommonlyUsedSettings`](https://github.com/microsoft/vscode/blob/8907447ca3ee785647a4cd0836c8914d6e54226d/src/vs/workbench/contrib/preferences/browser/settingsLayout.ts#L17) into account
+
 ## [1.0.2]
 
 - Add cache for the compare function.

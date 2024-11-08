@@ -1,4 +1,51 @@
 {
+  // Controls auto save of editors that have unsaved changes.
+  //  - off: An editor with changes is never automatically saved.
+  //  - afterDelay: An editor with changes is automatically saved after the configured `files.autoSaveDelay`.
+  //  - onFocusChange: An editor with changes is automatically saved when the editor loses focus.
+  //  - onWindowChange: An editor with changes is automatically saved when the window loses focus.
+  "files.autoSave": "off",
+  // Controls the font size in pixels.
+  "editor.fontSize": 14,
+  // Controls the font family.
+  "editor.fontFamily": "Consolas, 'Courier New', monospace",
+  // The number of spaces a tab is equal to. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
+  "editor.tabSize": 4,
+  // Controls how the editor should render whitespace characters.
+  //  - none
+  //  - boundary: Render whitespace characters except for single spaces between words.
+  //  - selection: Render whitespace characters only on selected text.
+  //  - trailing: Render only trailing whitespace characters.
+  //  - all
+  "editor.renderWhitespace": "selection",
+  // Controls the cursor style.
+  "editor.cursorStyle": "line",
+  // The modifier to be used to add multiple cursors with the mouse. The Go to Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier.
+  //  - ctrlCmd: Maps to `Control` on Windows and Linux and to `Command` on macOS.
+  //  - alt: Maps to `Alt` on Windows and Linux and to `Option` on macOS.
+  "editor.multiCursorModifier": "alt",
+  // Insert spaces when pressing `Tab`. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
+  "editor.insertSpaces": true,
+  // Controls how lines should wrap.
+  //  - off: Lines will never wrap.
+  //  - on: Lines will wrap at the viewport width.
+  //  - wordWrapColumn: Lines will wrap at `editor.wordWrapColumn`.
+  //  - bounded: Lines will wrap at the minimum of viewport and `editor.wordWrapColumn`.
+  "editor.wordWrap": "off",
+  // Configure glob patterns for excluding files and folders. For example, the File Explorer decides which files and folders to show or hide based on this setting. Refer to the `search.exclude` setting to define search-specific excludes.
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/CVS": true,
+    "**/Thumbs.db": true
+  },
+  // Files
+  // Configure glob patterns of file associations to languages.
+  "files.associations": {},
+  // Controls whether opened editors show as preview editors. Preview editors do not stay open, are reused until explicitly set to be kept open (via double-click or editing), and show file names in italics.
+  "workbench.editor.enablePreview": true,
   // Controls the number of lines in the editor that can be read out by a screen reader at once. When we detect a screen reader, we automatically set the default to be 500.
   "editor.accessibilityPageSize": 10,
   // Controls if the UI should run in a mode where it is optimized for screen readers.
@@ -202,8 +249,6 @@
   "editor.inlayHints.padding": false,
   // Controls whether the accessibility hint should be provided to screen reader users when an inline completion is shown.
   "editor.inlineCompletionsAccessibilityVerbose": false,
-  // Insert spaces when pressing `Tab`. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
-  "editor.insertSpaces": true,
   // Defines the bracket symbols that increase or decrease the indentation.
   "editor.language.brackets": null,
   // Defines the bracket pairs that are colorized by their nesting level if bracket pair colorization is enabled.
@@ -244,10 +289,6 @@
   "editor.multiCursorLimit": 10000,
   // Merge multiple cursors when they are overlapping.
   "editor.multiCursorMergeOverlapping": true,
-  // The modifier to be used to add multiple cursors with the mouse. The Go to Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier.
-  //  - ctrlCmd: Maps to `Control` on Windows and Linux and to `Command` on macOS.
-  //  - alt: Maps to `Alt` on Windows and Linux and to `Option` on macOS.
-  "editor.multiCursorModifier": "alt",
   // Controls pasting when the line count of the pasted text matches the cursor count.
   //  - spread: Each cursor pastes a single line of the text.
   //  - full: Each cursor pastes the full text.
@@ -293,13 +334,6 @@
   "editor.renderLineHighlight": "line",
   // Controls if the editor should render the current line highlight only when the editor is focused.
   "editor.renderLineHighlightOnlyWhenFocus": false,
-  // Controls how the editor should render whitespace characters.
-  //  - none
-  //  - boundary: Render whitespace characters except for single spaces between words.
-  //  - selection: Render whitespace characters only on selected text.
-  //  - trailing: Render only trailing whitespace characters.
-  //  - all
-  "editor.renderWhitespace": "selection",
   // Controls whether selections should have rounded corners.
   "editor.roundedSelection": true,
   // Render vertical rulers after a certain number of monospace characters. Use multiple values for multiple rulers. No rulers are drawn if array is empty.
@@ -375,8 +409,6 @@
   "editor.tabCompletion": "off",
   // Controls whether the editor receives tabs or defers them to the workbench for navigation.
   "editor.tabFocusMode": false,
-  // The number of spaces a tab is equal to. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
-  "editor.tabSize": 4,
   // Overrides editor syntax colors and font style from the currently selected color theme.
   "editor.tokenColorCustomizations": {},
   // Remove trailing auto inserted whitespace.
@@ -414,12 +446,6 @@
   "editor.wordSegmenterLocales": null,
   // Characters that will be used as word separators when doing word related navigations or operations.
   "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?",
-  // Controls how lines should wrap.
-  //  - off: Lines will never wrap.
-  //  - on: Lines will wrap at the viewport width.
-  //  - wordWrapColumn: Lines will wrap at `editor.wordWrapColumn`.
-  //  - bounded: Lines will wrap at the minimum of viewport and `editor.wordWrapColumn`.
-  "editor.wordWrap": "off",
   // Controls the wrapping column of the editor when `editor.wordWrap` is `wordWrapColumn` or `bounded`.
   "editor.wordWrapColumn": 80,
   // Controls the indentation of wrapped lines.
@@ -439,8 +465,6 @@
   //  - explicit: Smooth caret animation is enabled only when the user moves the cursor with an explicit gesture.
   //  - on: Smooth caret animation is always enabled.
   "editor.cursorSmoothCaretAnimation": "off",
-  // Controls the cursor style.
-  "editor.cursorStyle": "line",
   // Controls the minimal number of visible leading lines (minimum 0) and trailing lines (minimum 1) surrounding the cursor. Known as 'scrollOff' or 'scrollOffset' in some other editors.
   "editor.cursorSurroundingLines": 0,
   // Controls when `editor.cursorSurroundingLines` should be enforced.
@@ -467,12 +491,8 @@
   //  - always: Always seed search string from the editor selection, including word at cursor position.
   //  - selection: Only seed search string from the editor selection.
   "editor.find.seedSearchStringFromSelection": "always",
-  // Controls the font family.
-  "editor.fontFamily": "Consolas, 'Courier New', monospace",
   // Configures font ligatures or font features. Can be either a boolean to enable/disable ligatures or a string for the value of the CSS 'font-feature-settings' property.
   "editor.fontLigatures": false,
-  // Controls the font size in pixels.
-  "editor.fontSize": 14,
   // Configures font variations. Can be either a boolean to enable/disable the translation from font-weight to font-variation-settings or a string for the value of the CSS 'font-variation-settings' property.
   "editor.fontVariations": false,
   // Controls the font weight. Accepts "normal" and "bold" keywords or numbers between 1 and 1000.
@@ -689,17 +709,8 @@
   //  - matchingDocuments: Suggest words from all open documents of the same language.
   //  - allDocuments: Suggest words from all open documents.
   "editor.wordBasedSuggestions": "matchingDocuments",
-  // Files
-  // Configure glob patterns of file associations to languages.
-  "files.associations": {},
   // When enabled, the editor will attempt to guess the character set encoding when opening files. This setting can also be configured per language. Note, this setting is not respected by text search. Only `files.encoding` is respected.
   "files.autoGuessEncoding": false,
-  // Controls auto save of editors that have unsaved changes.
-  //  - off: An editor with changes is never automatically saved.
-  //  - afterDelay: An editor with changes is automatically saved after the configured `files.autoSaveDelay`.
-  //  - onFocusChange: An editor with changes is automatically saved when the editor loses focus.
-  //  - onWindowChange: An editor with changes is automatically saved when the window loses focus.
-  "files.autoSave": "off",
   // Controls the delay in milliseconds after which an editor with unsaved changes is saved automatically. Only applies when `files.autoSave` is set to `afterDelay`.
   "files.autoSaveDelay": 1000,
   // When enabled, will limit auto save of editors to files that have no errors reported in them at the time the auto save is triggered. Only applies when `files.autoSave` is enabled.
@@ -721,15 +732,6 @@
   //  - \r\n: CRLF
   //  - auto: Uses operating system specific end of line character.
   "files.eol": "auto",
-  // Configure glob patterns for excluding files and folders. For example, the File Explorer decides which files and folders to show or hide based on this setting. Refer to the `search.exclude` setting to define search-specific excludes.
-  "files.exclude": {
-    "**/.DS_Store": true,
-    "**/.git": true,
-    "**/.hg": true,
-    "**/.svn": true,
-    "**/CVS": true,
-    "**/Thumbs.db": true
-  },
   // Hot Exit controls whether unsaved files are remembered between sessions, allowing the save prompt when exiting the editor to be skipped.
   //  - off: Disable hot exit. A prompt will show when attempting to close a window with editors that have unsaved changes.
   //  - onExit: Hot exit will be triggered when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (command palette, keybinding, menu). All windows without folders opened will be restored upon next launch. A list of previously opened windows with unsaved files can be accessed via `File > Open Recent > More...`
@@ -1059,8 +1061,6 @@
   "workbench.editor.editorActionsLocation": "default",
   // Controls if the empty editor text hint should be visible in the editor.
   "workbench.editor.empty.hint": "text",
-  // Controls whether opened editors show as preview editors. Preview editors do not stay open, are reused until explicitly set to be kept open (via double-click or editing), and show file names in italics.
-  "workbench.editor.enablePreview": true,
   // Controls whether editors remain in preview when a code navigation is started from them. Preview editors do not stay open, and are reused until explicitly set to be kept open (via double-click or editing). This value is ignored when `workbench.editor.showTabs` is not set to `multiple`.
   "workbench.editor.enablePreviewFromCodeNavigation": false,
   // Controls whether editors opened from Quick Open show as preview editors. Preview editors do not stay open, and are reused until explicitly set to be kept open (via double-click or editing). When enabled, hold Ctrl before selection to open an editor as a non-preview. This value is ignored when `workbench.editor.showTabs` is not set to `multiple`.
@@ -3878,9 +3878,9 @@
   },
   // Configure settings to be overridden for the dockercompose language.
   "[dockercompose]": {
-    "editor.autoIndent": "advanced",
+    "editor.tabSize": 2,
     "editor.insertSpaces": true,
-    "editor.tabSize": 2
+    "editor.autoIndent": "advanced"
   },
   // Configure settings to be overridden for the dockerfile language.
   "[dockerfile]": {
@@ -3894,11 +3894,11 @@
   },
   // Configure settings to be overridden for the git-commit language.
   "[git-commit]": {
+    "editor.wordWrap": "off",
     "editor.rulers": [
       50,
       72
     ],
-    "editor.wordWrap": "off",
     "workbench.editor.restoreViewState": false
   },
   // Configure settings to be overridden for the git-rebase language.
@@ -3949,9 +3949,9 @@
   },
   // Configure settings to be overridden for the markdown language.
   "[markdown]": {
+    "editor.wordWrap": "on",
     "editor.unicodeHighlight.ambiguousCharacters": false,
     "editor.unicodeHighlight.invisibleCharacters": false,
-    "editor.wordWrap": "on",
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.quickSuggestions": {
       "comments": "off",
@@ -3982,9 +3982,9 @@
   },
   // Configure settings to be overridden for the yaml language.
   "[yaml]": {
-    "editor.autoIndent": "advanced",
-    "editor.insertSpaces": true,
     "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.autoIndent": "advanced",
     "diffEditor.ignoreTrimWhitespace": false
   }
 }

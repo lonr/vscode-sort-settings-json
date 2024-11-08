@@ -1,20 +1,21 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.renderWhitespace": "all",
-  // Prettier
-  "editor.tabSize": 2,
-  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?！￥（）、；：‘’“”，。《》？—",
   "editor.fontFamily": "'Fira Code', 'Noto Sans Mono CJK SC', 'Noto Color Emoji', monospace",
-  "editor.fontLigatures": true,
-  "editor.formatOnPaste": true,
-  "editor.inlineSuggest.enabled": true,
-  "files.defaultLanguage": " ${activeEditorLanguage}",
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
   "files.exclude": {
     "**/.classpath": true,
     "**/.factorypath": true,
     "**/.project": true,
     "**/.settings": true
   },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?！￥（）、；：‘’“”，。《》？—",
+  "editor.fontLigatures": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.formatOnType": false,
+  "editor.inlineSuggest.enabled": true,
+  "files.defaultLanguage": " ${activeEditorLanguage}",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb",
     "*.pdf": "default"
@@ -46,8 +47,6 @@
   "hexeditor.defaultEndianness": "little",
   "hexeditor.inspectorType": "aside",
   "hexeditor.showDecodedText": true,
-  // code style
-  // format 中文
   "json.format.enable": false,
   "leetcode.defaultLanguage": "typescript",
   "leetcode.hint.commandShortcut": false,

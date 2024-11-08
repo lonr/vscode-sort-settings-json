@@ -1,5 +1,5 @@
 import { sortJsonc } from 'sort-jsonc';
-import { ITOCEntry, tocData } from './tocTree';
+import { defaultCommonlyUsedSettings as commonlyUsed, ITOCEntry, tocData } from './tocTree';
 import { settingMatches } from './utils';
 
 // For example, [markdown]
@@ -17,8 +17,8 @@ export function sortSettingsJson(json: string): string {
       } else if (isLangSetting(key1) && isLangSetting(key2)) {
         return key1.localeCompare(key2);
       } else {
-        const order1 = calcOrder(tocData, key1);
-        const order2 = calcOrder(tocData, key2);
+        const order1 = calcOrder(commonlyUsed, tocData, key1);
+        const order2 = calcOrder(commonlyUsed, tocData, key2);
         // also handles when both `order1` and `order2` equal `Infinity`.
         if (order1 === order2) {
           return key1.localeCompare(key2);
@@ -30,22 +30,34 @@ export function sortSettingsJson(json: string): string {
   });
 }
 
-type Result = { found: boolean; current: number };
+function calcOrder(
+  commonlyUsed: string[],
+  tocData: ITOCEntry<string>,
+  key: string,
+) {
+  if (commonlyUsed.includes(key)) {
+    return commonlyUsed.indexOf(key);
+  }
+
+  return commonlyUsed.length + calcOrderOfTocData(tocData, key);
+}
 
 const orderCache = new Map<string, number>();
 
-function calcOrder(tocData: ITOCEntry<string>, key: string): number {
+type Result = { found: boolean; current: number };
+
+function calcOrderOfTocData(tocData: ITOCEntry<string>, key: string): number {
   if (orderCache.has(key)) {
     return orderCache.get(key)!;
   }
 
-  const { found, current } = calcOrderHelper(tocData, key);
+  const { found, current } = calcOrderOfTocDataHelper(tocData, key);
   const order = found ? current : Infinity;
   orderCache.set(key, order);
   return order;
 }
 
-function calcOrderHelper(
+function calcOrderOfTocDataHelper(
   tocData: ITOCEntry<string>,
   key: string,
   order: Result = { found: false, current: 0 },
@@ -54,7 +66,7 @@ function calcOrderHelper(
 
   if (tocData.children) {
     for (const child of tocData.children) {
-      const { found, current } = calcOrderHelper(child, key, {
+      const { found, current } = calcOrderOfTocDataHelper(child, key, {
         found: false,
         current: next,
       });

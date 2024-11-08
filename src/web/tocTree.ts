@@ -14,6 +14,21 @@ export interface ITOCEntry<T> {
   settings?: Array<T>;
 }
 
+export const defaultCommonlyUsedSettings: string[] = [
+  'files.autoSave',
+  'editor.fontSize',
+  'editor.fontFamily',
+  'editor.tabSize',
+  'editor.renderWhitespace',
+  'editor.cursorStyle',
+  'editor.multiCursorModifier',
+  'editor.insertSpaces',
+  'editor.wordWrap',
+  'files.exclude',
+  'files.associations',
+  'workbench.editor.enablePreview',
+];
+
 export const tocData: ITOCEntry<string> = {
   id: 'root',
   label: 'root',
@@ -285,5 +300,3 @@ export const tocData: ITOCEntry<string> = {
     },
   ],
 };
-
-
