@@ -4,9 +4,12 @@ Sorts the `settings.json` file according to the VSCode settings UI order.
 
 1. Open `settings.json`
 2. Open Command Palette(`Ctrl+Shift+P`), search and run `Sort settings.json`
+   - If you want to break up the "Commonly Used" category, run command `Sort settings.json (No "Commonly Used")` instead
 3. Done! You can then save the file
 
 ![screenshot](./images/screenshot.png)
+
+> After running `Sort settings.json`. The sorted `settings.json` matches the order of the UI.(`modified` filter used in the screenshot)
 
 ## Limits
 

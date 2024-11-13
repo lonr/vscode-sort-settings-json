@@ -8,7 +8,6 @@ import * as vscode from 'vscode';
 suite('Web Extension Test Suite', () => {
   vscode.window.showInformationMessage('Start all tests.');
 
-
   test('f', () => {
     assert.strictEqual(1, 1);
   });

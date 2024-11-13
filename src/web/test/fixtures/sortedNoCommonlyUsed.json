@@ -1,0 +1,95 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?！￥（）、；：‘’“”，。《》？—",
+  "editor.fontFamily": "'Fira Code', 'Noto Sans Mono CJK SC', 'Noto Color Emoji', monospace",
+  "editor.fontLigatures": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.formatOnType": false,
+  "editor.inlineSuggest.enabled": true,
+  "files.defaultLanguage": " ${activeEditorLanguage}",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.project": true,
+    "**/.settings": true
+  },
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb",
+    "*.pdf": "default"
+  },
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.iconTheme": "vscode-icons",
+  "window.dialogStyle": "custom",
+  "window.titleBarStyle": "custom",
+  "terminal.external.linuxExec": "tilix",
+  "terminal.integrated.commandsToSkipShell": [
+    "-workbench.action.terminal.focusFind",
+    "-workbench.action.quickOpen"
+  ],
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.minimumContrastRatio": 1,
+  "remote.containers.dockerPath": "",
+  "cSpell.language": "en",
+  "css.validate": false,
+  "database-client.autoSync": true,
+  "eslint.packageManager": "pnpm",
+  "git.autofetch": true,
+  "githubPullRequests.pullBranch": "never",
+  "grammarly.files.include": [
+    "**/README.md",
+    "**/readme.md",
+    "**/*.txt"
+  ],
+  "hexeditor.columnWidth": 16,
+  "hexeditor.defaultEndianness": "little",
+  "hexeditor.inspectorType": "aside",
+  "hexeditor.showDecodedText": true,
+  "json.format.enable": false,
+  "leetcode.defaultLanguage": "typescript",
+  "leetcode.hint.commandShortcut": false,
+  "leetcode.hint.commentDescription": false,
+  "leetcode.hint.configWebviewMarkdown": false,
+  "leetcode.showDescription": "None",
+  "leetcode.workspaceFolder": "/home/lonr/Projects/leetcode",
+  "less.validate": false,
+  "markdown.preview.fontFamily": "Roboto,'Noto Sans CJK SC','Noto Color Emoji',sans-serif",
+  "prettier.singleQuote": true,
+  "redhat.telemetry.enabled": false,
+  "scss.validate": false,
+  "stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "scss"
+  ],
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[fish]": {
+    "editor.defaultFormatter": "bmalehorn.vscode-fish"
+  },
+  "[markdown]": {
+    // "editor.wordWrap": "off",
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    // "editor.unicodeHighlight.allowedLocales": {
+    //   "zh-hans": true
+    // },
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "other": "off",
+      "strings": "off"
+    },
+    "files.trimTrailingWhitespace": false
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  }
+}
