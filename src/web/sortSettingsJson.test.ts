@@ -17,7 +17,7 @@ suite('sortSettingsJson', () => {
       'utf-8',
     );
     // TODO: deal with the newline at the end of the file
-    assert.strictEqual(sortedJson, sortSettingsJson(settingsJson, false));
+    assert.strictEqual(sortedJson, sortSettingsJson(settingsJson, true));
   });
 
   void test('sortSettingsJson - defaultSettings.json', async function () {
@@ -32,7 +32,7 @@ suite('sortSettingsJson', () => {
     // TODO: deal with the newline at the end of the file
     assert.strictEqual(
       defaultSortedJson,
-      sortSettingsJson(defaultSettingsJson, false),
+      sortSettingsJson(defaultSettingsJson, true),
     );
   });
 });
@@ -48,7 +48,7 @@ suite('sortSettingsJson noCommonlyUsed', () => {
       'utf-8',
     );
     // TODO: deal with the newline at the end of the file
-    assert.strictEqual(sortedJson, sortSettingsJson(settingsJson, true));
+    assert.strictEqual(sortedJson, sortSettingsJson(settingsJson, false));
   });
 
   void test('sortSettingsJson - defaultSettings.json', async function () {
@@ -63,7 +63,7 @@ suite('sortSettingsJson noCommonlyUsed', () => {
     // TODO: deal with the newline at the end of the file
     assert.strictEqual(
       defaultSortedJson,
-      sortSettingsJson(defaultSettingsJson, true),
+      sortSettingsJson(defaultSettingsJson, false),
     );
   });
 });

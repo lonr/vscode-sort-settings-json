@@ -13,7 +13,7 @@ function isLangSetting(key: string) {
 
 export function sortSettingsJson(
   json: string,
-  noCommonlyUsed: boolean,
+  commonlyUsedFirst: boolean,
 ): string {
   return sortJsonc(json, {
     sort(key1, key2) {
@@ -24,8 +24,8 @@ export function sortSettingsJson(
       } else if (isLangSetting(key1) && isLangSetting(key2)) {
         return key1.localeCompare(key2);
       } else {
-        const order1 = calcOrder(commonlyUsed, noCommonlyUsed, tocData, key1);
-        const order2 = calcOrder(commonlyUsed, noCommonlyUsed, tocData, key2);
+        const order1 = calcOrder(commonlyUsed, commonlyUsedFirst, tocData, key1);
+        const order2 = calcOrder(commonlyUsed, commonlyUsedFirst, tocData, key2);
         // also handles when both `order1` and `order2` equal `Infinity`.
         if (order1 === order2) {
           return key1.localeCompare(key2);
@@ -44,11 +44,11 @@ const cache = new Map<string, number>();
 
 function calcOrder(
   commonlyUsed: string[],
-  noCommonlyUsed: boolean,
+  commonlyUsedFirst: boolean,
   tocData: ITOCEntry<string>,
   key: string,
 ) {
-  if (!noCommonlyUsed && commonlyUsed.includes(key)) {
+  if (commonlyUsedFirst && commonlyUsed.includes(key)) {
     return commonlyUsed.indexOf(key);
   } else if (cache.has(key)) {
     return cache.get(key)!;

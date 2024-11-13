@@ -12,7 +12,8 @@ export function activate(context: vscode.ExtensionContext) {
     'Congratulations, extension "sort-settings-json" is now active in the web extension host!',
   );
 
-  const command = (noCommonlyUsed: boolean) => () => {
+
+  const command = (commonlyUsedFirst: boolean) => () => {
     // The code you place here will be executed every time your command is executed
     const editor = vscode.window.activeTextEditor;
 
@@ -27,7 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
     const settings = editor.document.getText();
 
     // Sort the settings
-    const sortedSettings = sortSettingsJson(settings, noCommonlyUsed);
+    const sortedSettings = sortSettingsJson(settings, commonlyUsedFirst);
 
     // Replace the current document with the sorted settings
     editor.edit((editBuilder) => {
@@ -40,7 +41,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Display a message box to the user
     vscode.window.showInformationMessage(
-      `settings.json sorted.${noCommonlyUsed ? '(No Commonly Used)' : ''}`,
+      `settings.json sorted.${commonlyUsedFirst ? '' : '(No "Commonly Used")'}`,
     );
   };
 
@@ -51,12 +52,12 @@ export function activate(context: vscode.ExtensionContext) {
 
     vscode.commands.registerCommand(
       'sort-settings-json.sortSettingsJson',
-      command(false),
+      command(true),
     ),
 
     vscode.commands.registerCommand(
       'sort-settings-json.sortSettingsJsonNoCommonlyUsed',
-      command(true),
+      command(false),
     ),
   ];
 
