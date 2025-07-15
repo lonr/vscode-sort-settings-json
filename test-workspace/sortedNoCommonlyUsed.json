@@ -1,0 +1,107 @@
+{
+  "editor.accessibilitySupport": "off",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [
+    120
+  ],
+  // code style
+  "editor.tabSize": 2,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?！￥（）、；：‘’“”，。《》？—",
+  "editor.fontFamily": "'FiraCode Nerd Font'",
+  "editor.fontLigatures": true,
+  // modified by IntelliCode
+  "editor.suggestSelection": "first",
+  "files.defaultLanguage": "javscript",
+  "files.insertFinalNewline": true,
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.iconTheme": "vscode-icons",
+  // theme
+  "window.title": "${dirty}${activeEditorShort}${separator}${rootName}",
+  "window.titleBarStyle": "custom",
+  "terminal.external.linuxExec": "tilix",
+  "terminal.integrated.env.osx": {},
+  "terminal.integrated.minimumContrastRatio": 1,
+  "http.proxy": "socks://127.0.0.1:7897",
+  "C_Cpp.default.cStandard": "c11",
+  "C_Cpp.default.intelliSenseMode": "gcc-x64",
+  "C_Cpp.updateChannel": "Insiders",
+  "codeium.enableConfig": {
+    "*": true,
+    "markdown": true
+  },
+  "console-ninja.featureSet": "Community",
+  "cSpell.language": "en",
+  "cSpell.userWords": [
+    "Adwaita",
+    "Boilerplates",
+    "Btrfs",
+    "Discardable",
+    "Gooluck",
+    "Hukou",
+    "Inkscape",
+    "Interop",
+    "Keypress",
+    "Omnibox",
+    "SERPs",
+    "Saka",
+    "Silverblue",
+    "coursera",
+    "curr",
+    "editorconfig",
+    "endregion",
+    "gedit",
+    "keyframes",
+    "lonr",
+    "lonr's",
+    "luckluckgo",
+    "octicon",
+    "octicons",
+    "opensearch",
+    "preload",
+    "readline",
+    "repos",
+    "stylelint",
+    "webext",
+    "webextensions",
+    "zici"
+  ],
+  "css.validate": false,
+  "eslint.packageManager": "yarn",
+  "javascript.preferences.quoteStyle": "single",
+  // ESLint
+  // "eslint.validate": ["javascript", "javascriptreact", "typescript"],
+  // "editor.codeActionsOnSave": {
+  //   "source.fixAll.eslint": true
+  // },
+  "json.format.enable": false,
+  "leetcode.defaultLanguage": "cpp",
+  "less.validate": false,
+  "markdown.preview.fontFamily": "Roboto, 'Noto Sans CJK SC', 'Noto Color Emoji', sans-serif",
+  "scss.validate": false,
+  "typescript.preferences.quoteStyle": "single",
+  "xml.server.workDir": "~/.cache/lsp4xml",
+  "[c]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "[fish]": {
+    "editor.defaultFormatter": "bmalehorn.vscode-fish"
+  },
+  "[markdown]": {
+    // "editor.wordWrap": "off",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "other": "off",
+      "strings": "off"
+    },
+    "files.trimTrailingWhitespace": false
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
+  }
+}

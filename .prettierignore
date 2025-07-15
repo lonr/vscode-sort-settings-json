@@ -1,5 +1,2 @@
-# Ignore artifacts:
-build
-coverage
-pnpm-lock.yaml
-fixtures
+vender/settingsLayout.ts
+test-workspace

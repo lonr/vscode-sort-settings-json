@@ -1,8 +1,8 @@
 {
   "name": "sort-settings-json",
   "displayName": "Sort settings.json",
-  "version": "1.2.0",
-  "description": "Sorts the settings.json file according to the VSCode settings UI order",
+  "version": "1.102.0",
+  "description": "Sorts your settings.json file to match the order used in the Visual Studio Code settings UI, making your configuration easier to browse and maintain.",
   "categories": [
     "Formatters"
   ],
@@ -14,18 +14,16 @@
   "publisher": "lonr",
   "browser": "./dist/web/extension.js",
   "scripts": {
-    "pretest": "pnpm run compile-web",
-    "test": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/extensionTests.js",
-    "simple-test": "tsx ./src/web/sortSettingsJson.test.ts",
-    "vscode:prepublish": "pnpm run package-web",
-    "compile-web": "pnpm run check-types && pnpm run lint && node esbuild.js",
-    "watch-web": "npm-run-all -p watch-web:*",
-    "watch-web:esbuild": "node esbuild.js --watch",
-    "watch-web:tsc": "tsc --noEmit --watch --project tsconfig.json",
-    "package-web": "pnpm run check-types && pnpm run lint && node esbuild.js --production",
-    "check-types": "tsc --noEmit",
+    "compile-web": "webpack",
+    "postinstall": "patch-package",
     "lint": "eslint src",
-    "run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ."
+    "package-web": "webpack --mode production --devtool hidden-source-map",
+    "run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. .",
+    "pretest": "npm run compile-web",
+    "test": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js test-workspace",
+    "update-vender": "node vender/update.js",
+    "vscode:prepublish": "npm run package-web",
+    "watch-web": "webpack --watch"
   },
   "contributes": {
     "commands": [
@@ -44,28 +42,25 @@
     "sort-jsonc": "^1.0.2"
   },
   "devDependencies": {
-    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
-    "@types/assert": "^1.5.10",
-    "@types/mocha": "^10.0.9",
-    "@types/node": "^22.9.0",
-    "@types/vscode": "^1.95.0",
-    "@typescript-eslint/eslint-plugin": "^8.10.0",
-    "@typescript-eslint/parser": "^8.7.0",
-    "@vscode/test-web": "^0.0.63",
+    "@types/assert": "^1.5.11",
+    "@types/mocha": "^10.0.10",
+    "@types/vscode": "^1.102.0",
+    "@types/webpack-env": "^1.18.8",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "@vscode/test-web": "^0.0.71",
     "assert": "^2.1.0",
-    "buffer": "^6.0.3",
-    "esbuild": "^0.24.0",
-    "eslint": "^9.13.0",
-    "eslint-config-prettier": "^9.1.0",
-    "glob": "^11.0.0",
-    "mocha": "^10.7.3",
-    "npm-run-all": "^4.1.5",
-    "prettier": "3.3.3",
-    "tsx": "^4.19.2",
-    "typescript": "^5.6.3"
+    "eslint": "^9.25.1",
+    "mocha": "^11.1.0",
+    "patch-package": "^8.0.0",
+    "process": "^0.11.10",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.7",
+    "webpack-cli": "^6.0.1"
   },
   "engines": {
-    "vscode": "^1.95.0"
+    "vscode": "^1.102.0"
   },
   "icon": "./images/logo.png"
 }

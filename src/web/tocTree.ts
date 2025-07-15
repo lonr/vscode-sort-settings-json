@@ -1,10 +1,13 @@
-// https://github.com/microsoft/vscode/blob/49907c09c4decf69fa63dfcf0584721402ff2a78/src/vs/workbench/contrib/preferences/browser/settingsLayout.ts
+// https://github.com/microsoft/vscode/blob/main/src/vs/workbench/contrib/preferences/browser/settingsLayout.ts
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import { localize } from './utils';
+import { localize } from "./utils";
+
+const isWindows = true;
+const isWeb = true;
 
 export interface ITOCEntry<T> {
   id: string;
@@ -12,289 +15,291 @@ export interface ITOCEntry<T> {
   order?: number;
   children?: ITOCEntry<T>[];
   settings?: Array<T>;
+  hide?: boolean;
 }
 
 export const defaultCommonlyUsedSettings: string[] = [
-  'files.autoSave',
-  'editor.fontSize',
-  'editor.fontFamily',
-  'editor.tabSize',
-  'editor.renderWhitespace',
-  'editor.cursorStyle',
-  'editor.multiCursorModifier',
-  'editor.insertSpaces',
-  'editor.wordWrap',
-  'files.exclude',
-  'files.associations',
-  'workbench.editor.enablePreview',
+  "editor.fontSize",
+  "editor.formatOnSave",
+  "files.autoSave",
+  "editor.defaultFormatter",
+  "editor.fontFamily",
+  "editor.wordWrap",
+  "files.exclude",
+  "workbench.colorTheme",
+  "editor.tabSize",
+  "editor.mouseWheelZoom",
+  "editor.formatOnPaste",
 ];
 
 export const tocData: ITOCEntry<string> = {
-  id: 'root',
-  label: 'root',
+  id: "root",
+  label: "root",
   children: [
     {
-      id: 'editor',
-      label: localize('textEditor', 'Text Editor'),
-      settings: ['editor.*'],
+      id: "editor",
+      label: localize("textEditor", "Text Editor"),
+      settings: ["editor.*"],
       children: [
         {
-          id: 'editor/cursor',
-          label: localize('cursor', 'Cursor'),
-          settings: ['editor.cursor*'],
+          id: "editor/cursor",
+          label: localize("cursor", "Cursor"),
+          settings: ["editor.cursor*"],
         },
         {
-          id: 'editor/find',
-          label: localize('find', 'Find'),
-          settings: ['editor.find.*'],
+          id: "editor/find",
+          label: localize("find", "Find"),
+          settings: ["editor.find.*"],
         },
         {
-          id: 'editor/font',
-          label: localize('font', 'Font'),
-          settings: ['editor.font*'],
+          id: "editor/font",
+          label: localize("font", "Font"),
+          settings: ["editor.font*"],
         },
         {
-          id: 'editor/format',
-          label: localize('formatting', 'Formatting'),
-          settings: ['editor.format*'],
+          id: "editor/format",
+          label: localize("formatting", "Formatting"),
+          settings: ["editor.format*"],
         },
         {
-          id: 'editor/diffEditor',
-          label: localize('diffEditor', 'Diff Editor'),
-          settings: ['diffEditor.*'],
+          id: "editor/diffEditor",
+          label: localize("diffEditor", "Diff Editor"),
+          settings: ["diffEditor.*"],
         },
         {
-          id: 'editor/multiDiffEditor',
-          label: localize('multiDiffEditor', 'Multi-File Diff Editor'),
-          settings: ['multiDiffEditor.*'],
+          id: "editor/multiDiffEditor",
+          label: localize("multiDiffEditor", "Multi-File Diff Editor"),
+          settings: ["multiDiffEditor.*"],
         },
         {
-          id: 'editor/minimap',
-          label: localize('minimap', 'Minimap'),
-          settings: ['editor.minimap.*'],
+          id: "editor/minimap",
+          label: localize("minimap", "Minimap"),
+          settings: ["editor.minimap.*"],
         },
         {
-          id: 'editor/suggestions',
-          label: localize('suggestions', 'Suggestions'),
-          settings: ['editor.*suggest*'],
+          id: "editor/suggestions",
+          label: localize("suggestions", "Suggestions"),
+          settings: ["editor.*suggest*"],
         },
         {
-          id: 'editor/files',
-          label: localize('files', 'Files'),
-          settings: ['files.*'],
+          id: "editor/files",
+          label: localize("files", "Files"),
+          settings: ["files.*"],
         },
       ],
     },
     {
-      id: 'workbench',
-      label: localize('workbench', 'Workbench'),
-      settings: ['workbench.*'],
+      id: "workbench",
+      label: localize("workbench", "Workbench"),
+      settings: ["workbench.*"],
       children: [
         {
-          id: 'workbench/appearance',
-          label: localize('appearance', 'Appearance'),
+          id: "workbench/appearance",
+          label: localize("appearance", "Appearance"),
           settings: [
-            'workbench.activityBar.*',
-            'workbench.*color*',
-            'workbench.fontAliasing',
-            'workbench.iconTheme',
-            'workbench.sidebar.location',
-            'workbench.*.visible',
-            'workbench.tips.enabled',
-            'workbench.tree.*',
-            'workbench.view.*',
+            "workbench.activityBar.*",
+            "workbench.*color*",
+            "workbench.fontAliasing",
+            "workbench.iconTheme",
+            "workbench.sidebar.location",
+            "workbench.*.visible",
+            "workbench.tips.enabled",
+            "workbench.tree.*",
+            "workbench.view.*",
           ],
         },
         {
-          id: 'workbench/breadcrumbs',
-          label: localize('breadcrumbs', 'Breadcrumbs'),
-          settings: ['breadcrumbs.*'],
+          id: "workbench/breadcrumbs",
+          label: localize("breadcrumbs", "Breadcrumbs"),
+          settings: ["breadcrumbs.*"],
         },
         {
-          id: 'workbench/editor',
-          label: localize('editorManagement', 'Editor Management'),
-          settings: ['workbench.editor.*'],
+          id: "workbench/editor",
+          label: localize("editorManagement", "Editor Management"),
+          settings: ["workbench.editor.*"],
         },
         {
-          id: 'workbench/settings',
-          label: localize('settings', 'Settings Editor'),
-          settings: ['workbench.settings.*'],
+          id: "workbench/settings",
+          label: localize("settings", "Settings Editor"),
+          settings: ["workbench.settings.*"],
         },
         {
-          id: 'workbench/zenmode',
-          label: localize('zenMode', 'Zen Mode'),
-          settings: ['zenmode.*'],
+          id: "workbench/zenmode",
+          label: localize("zenMode", "Zen Mode"),
+          settings: ["zenmode.*"],
         },
         {
-          id: 'workbench/screencastmode',
-          label: localize('screencastMode', 'Screencast Mode'),
-          settings: ['screencastMode.*'],
-        },
-      ],
-    },
-    {
-      id: 'window',
-      label: localize('window', 'Window'),
-      settings: ['window.*'],
-      children: [
-        {
-          id: 'window/newWindow',
-          label: localize('newWindow', 'New Window'),
-          settings: ['window.*newwindow*'],
+          id: "workbench/screencastmode",
+          label: localize("screencastMode", "Screencast Mode"),
+          settings: ["screencastMode.*"],
         },
       ],
     },
     {
-      id: 'features',
-      label: localize('features', 'Features'),
+      id: "window",
+      label: localize("window", "Window"),
+      settings: ["window.*"],
       children: [
         {
-          id: 'features/accessibilitySignals',
-          label: localize('accessibility.signals', 'Accessibility Signals'),
-          settings: ['accessibility.signal*'],
-        },
-        {
-          id: 'features/accessibility',
-          label: localize('accessibility', 'Accessibility'),
-          settings: ['accessibility.*'],
-        },
-        {
-          id: 'features/explorer',
-          label: localize('fileExplorer', 'Explorer'),
-          settings: ['explorer.*', 'outline.*'],
-        },
-        {
-          id: 'features/search',
-          label: localize('search', 'Search'),
-          settings: ['search.*'],
-        },
-        {
-          id: 'features/debug',
-          label: localize('debug', 'Debug'),
-          settings: ['debug.*', 'launch'],
-        },
-        {
-          id: 'features/testing',
-          label: localize('testing', 'Testing'),
-          settings: ['testing.*'],
-        },
-        {
-          id: 'features/scm',
-          label: localize('scm', 'Source Control'),
-          settings: ['scm.*'],
-        },
-        {
-          id: 'features/extensions',
-          label: localize('extensions', 'Extensions'),
-          settings: ['extensions.*'],
-        },
-        {
-          id: 'features/terminal',
-          label: localize('terminal', 'Terminal'),
-          settings: ['terminal.*'],
-        },
-        {
-          id: 'features/task',
-          label: localize('task', 'Task'),
-          settings: ['task.*'],
-        },
-        {
-          id: 'features/problems',
-          label: localize('problems', 'Problems'),
-          settings: ['problems.*'],
-        },
-        {
-          id: 'features/output',
-          label: localize('output', 'Output'),
-          settings: ['output.*'],
-        },
-        {
-          id: 'features/comments',
-          label: localize('comments', 'Comments'),
-          settings: ['comments.*'],
-        },
-        {
-          id: 'features/remote',
-          label: localize('remote', 'Remote'),
-          settings: ['remote.*'],
-        },
-        {
-          id: 'features/timeline',
-          label: localize('timeline', 'Timeline'),
-          settings: ['timeline.*'],
-        },
-        {
-          id: 'features/notebook',
-          label: localize('notebook', 'Notebook'),
-          settings: ['notebook.*', 'interactiveWindow.*'],
-        },
-        {
-          id: 'features/mergeEditor',
-          label: localize('mergeEditor', 'Merge Editor'),
-          settings: ['mergeEditor.*'],
-        },
-        {
-          id: 'features/chat',
-          label: localize('chat', 'Chat'),
-          settings: ['chat.*', 'inlineChat.*'],
-        },
-        {
-          id: 'features/issueReporter',
-          label: localize('issueReporter', 'Issue Reporter'),
-          settings: ['issueReporter.*'],
+          id: "window/newWindow",
+          label: localize("newWindow", "New Window"),
+          settings: ["window.*newwindow*"],
         },
       ],
     },
     {
-      id: 'application',
-      label: localize('application', 'Application'),
+      id: "features",
+      label: localize("features", "Features"),
       children: [
         {
-          id: 'application/http',
-          label: localize('proxy', 'Proxy'),
-          settings: ['http.*'],
+          id: "features/accessibilitySignals",
+          label: localize("accessibility.signals", "Accessibility Signals"),
+          settings: ["accessibility.signal*"],
         },
         {
-          id: 'application/keyboard',
-          label: localize('keyboard', 'Keyboard'),
-          settings: ['keyboard.*'],
+          id: "features/accessibility",
+          label: localize("accessibility", "Accessibility"),
+          settings: ["accessibility.*"],
         },
         {
-          id: 'application/update',
-          label: localize('update', 'Update'),
-          settings: ['update.*'],
+          id: "features/explorer",
+          label: localize("fileExplorer", "Explorer"),
+          settings: ["explorer.*", "outline.*"],
         },
         {
-          id: 'application/telemetry',
-          label: localize('telemetry', 'Telemetry'),
-          settings: ['telemetry.*'],
+          id: "features/search",
+          label: localize("search", "Search"),
+          settings: ["search.*"],
         },
         {
-          id: 'application/settingsSync',
-          label: localize('settingsSync', 'Settings Sync'),
-          settings: ['settingsSync.*'],
+          id: "features/debug",
+          label: localize("debug", "Debug"),
+          settings: ["debug.*", "launch"],
         },
         {
-          id: 'application/experimental',
-          label: localize('experimental', 'Experimental'),
-          settings: ['application.experimental.*'],
+          id: "features/testing",
+          label: localize("testing", "Testing"),
+          settings: ["testing.*"],
         },
         {
-          id: 'application/other',
-          label: localize('other', 'Other'),
-          settings: ['application.*'],
+          id: "features/scm",
+          label: localize("scm", "Source Control"),
+          settings: ["scm.*"],
+        },
+        {
+          id: "features/extensions",
+          label: localize("extensions", "Extensions"),
+          settings: ["extensions.*"],
+        },
+        {
+          id: "features/terminal",
+          label: localize("terminal", "Terminal"),
+          settings: ["terminal.*"],
+        },
+        {
+          id: "features/task",
+          label: localize("task", "Task"),
+          settings: ["task.*"],
+        },
+        {
+          id: "features/problems",
+          label: localize("problems", "Problems"),
+          settings: ["problems.*"],
+        },
+        {
+          id: "features/output",
+          label: localize("output", "Output"),
+          settings: ["output.*"],
+        },
+        {
+          id: "features/comments",
+          label: localize("comments", "Comments"),
+          settings: ["comments.*"],
+        },
+        {
+          id: "features/remote",
+          label: localize("remote", "Remote"),
+          settings: ["remote.*"],
+        },
+        {
+          id: "features/timeline",
+          label: localize("timeline", "Timeline"),
+          settings: ["timeline.*"],
+        },
+        {
+          id: "features/notebook",
+          label: localize("notebook", "Notebook"),
+          settings: ["notebook.*", "interactiveWindow.*"],
+        },
+        {
+          id: "features/mergeEditor",
+          label: localize("mergeEditor", "Merge Editor"),
+          settings: ["mergeEditor.*"],
+        },
+        {
+          id: "features/chat",
+          label: localize("chat", "Chat"),
+          settings: ["chat.*", "inlineChat.*", "mcp"],
+        },
+        {
+          id: "features/issueReporter",
+          label: localize("issueReporter", "Issue Reporter"),
+          settings: ["issueReporter.*"],
+          hide: !isWeb,
         },
       ],
     },
     {
-      id: 'security',
-      label: localize('security', 'Security'),
-      settings: ['security.*'],
+      id: "application",
+      label: localize("application", "Application"),
       children: [
         {
-          id: 'security/workspace',
-          label: localize('workspace', 'Workspace'),
-          settings: ['security.workspace.*'],
+          id: "application/http",
+          label: localize("proxy", "Proxy"),
+          settings: ["http.*"],
+        },
+        {
+          id: "application/keyboard",
+          label: localize("keyboard", "Keyboard"),
+          settings: ["keyboard.*"],
+        },
+        {
+          id: "application/update",
+          label: localize("update", "Update"),
+          settings: ["update.*"],
+        },
+        {
+          id: "application/telemetry",
+          label: localize("telemetry", "Telemetry"),
+          settings: ["telemetry.*"],
+        },
+        {
+          id: "application/settingsSync",
+          label: localize("settingsSync", "Settings Sync"),
+          settings: ["settingsSync.*"],
+        },
+        {
+          id: "application/experimental",
+          label: localize("experimental", "Experimental"),
+          settings: ["application.experimental.*"],
+        },
+        {
+          id: "application/other",
+          label: localize("other", "Other"),
+          settings: ["application.*"],
+          hide: isWindows,
+        },
+      ],
+    },
+    {
+      id: "security",
+      label: localize("security", "Security"),
+      settings: ["security.*"],
+      children: [
+        {
+          id: "security/workspace",
+          label: localize("workspace", "Workspace"),
+          settings: ["security.workspace.*"],
         },
       ],
     },

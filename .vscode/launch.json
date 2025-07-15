@@ -12,7 +12,8 @@
       "request": "launch",
       "args": [
         "--extensionDevelopmentPath=${workspaceFolder}",
-        "--extensionDevelopmentKind=web"
+        "--extensionDevelopmentKind=web",
+        "${workspaceFolder}/test-workspace"
       ],
       "outFiles": ["${workspaceFolder}/dist/web/**/*.js"],
       "preLaunchTask": "${defaultBuildTask}"
@@ -25,7 +26,8 @@
       "args": [
         "--extensionDevelopmentPath=${workspaceFolder}",
         "--extensionDevelopmentKind=web",
-        "--extensionTestsPath=${workspaceFolder}/dist/web/test/suite/extensionTests"
+        "--extensionTestsPath=${workspaceFolder}/dist/web/test/suite/index",
+        "${workspaceFolder}/test-workspace"
       ],
       "outFiles": ["${workspaceFolder}/dist/web/**/*.js"],
       "preLaunchTask": "${defaultBuildTask}"

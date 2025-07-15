@@ -1,0 +1,33 @@
+name: Update tocData from VS Code Upstream
+
+on:
+  schedule:
+    - cron: '0 0 * * 1' # Every Monday
+  workflow_dispatch:
+
+jobs:
+  update-tocdata:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Update settingsLayout.ts
+        id: update
+        run: node vender/update.js
+
+      - name: Create Pull Request
+        if: steps.update.outputs.updated == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: 'chore: update settingsLayout.ts from VS Code upstream'
+          title: 'Update settingsLayout.ts from VS Code upstream'
+          body: 'Automated update of settingsLayout.ts from https://github.com/microsoft/vscode/blob/main/src/vs/workbench/contrib/preferences/browser/settingsLayout.ts'
+          branch: update-settingsLayout
